@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Online Store | Home</title>
+  <meta name="description" content="Browse products in our online store." />
+  <link rel="stylesheet" href="css/style.css" />
+  <script type="module" src="js/home.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
+
+  <header class="site-header">
+    <div class="container">
+      <a class="logo" href="index.html">Online Store</a>
+
+      <nav aria-label="Main navigation" class="main-nav">
+        <ul class="nav-list">
+          <li><a href="index.html" aria-current="page">Home</a></li>
+          <li><a href="checkout/index.html">Checkout</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content" class="container">
+    <section class="intro">
+      <h1>Products</h1>
+      <p>Browse our products and add your favorites to the basket.</p>
+    </section>
+
+    <section class="filters" aria-labelledby="filter-heading">
+      <h2 id="filter-heading">Filter products</h2>
+
+      <form class="filter-form">
+        <div class="form-group">
+          <label for="filter">Choose a category, gender, or genre</label>
+          <select id="filter" name="filter">
+            <option value="all">All</option>
+          </select>
+        </div>
+      </form>
+    </section>
+
+    <section class="status-messages" aria-live="polite" aria-atomic="true">
+      <p class="loading" hidden>Loading products...</p>
+      <p class="error" hidden></p>
+      <p class="success-message" hidden></p>
+    </section>
+
+    <section aria-labelledby="product-list-heading">
+      <h2 id="product-list-heading">Available products</h2>
+      <div class="product-list"></div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; 2026 Online Store</p>
+    </div>
+  </footer>
+</body>
+</html>

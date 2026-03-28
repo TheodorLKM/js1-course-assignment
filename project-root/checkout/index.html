@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Online Store | Checkout</title>
+  <meta name="description" content="Review the items in your basket." />
+  <link rel="stylesheet" href="../css/style.css" />
+  <script type="module" src="../js/checkout.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
+
+  <header class="site-header">
+    <div class="container">
+      <a class="logo" href="../index.html">Online Store</a>
+
+      <nav aria-label="Main navigation" class="main-nav">
+        <ul class="nav-list">
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="index.html" aria-current="page">Checkout</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content" class="container">
+    <section class="checkout-header">
+      <h1>Your Basket</h1>
+      <p>Review your items before completing your purchase.</p>
+    </section>
+
+    <section class="status-messages" aria-live="polite" aria-atomic="true">
+      <p class="error" hidden></p>
+      <p class="success-message" hidden></p>
+    </section>
+
+    <section aria-labelledby="basket-heading">
+      <h2 id="basket-heading">Basket items</h2>
+      <p class="empty-cart" hidden>Your basket is empty.</p>
+      <div class="checkout-items"></div>
+    </section>
+
+    <aside class="checkout-summary" aria-labelledby="summary-heading">
+      <h2 id="summary-heading">Order summary</h2>
+      <p class="checkout-total">Total: 0 kr</p>
+      <button id="checkout-button" type="button">Complete Purchase</button>
+    </aside>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; 2026 Online Store</p>
+    </div>
+  </footer>
+</body>
+</html>

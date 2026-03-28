@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Online Store | Product</title>
+  <meta name="description" content="View product details." />
+  <link rel="stylesheet" href="../css/style.css" />
+  <script type="module" src="../js/product.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
+
+  <header class="site-header">
+    <div class="container">
+      <a class="logo" href="../index.html">Online Store</a>
+
+      <nav aria-label="Main navigation" class="main-nav">
+        <ul class="nav-list">
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="../checkout/index.html">Checkout</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content" class="container">
+    <nav aria-label="Breadcrumb" class="breadcrumb">
+      <a href="../index.html">Home</a>
+      <span aria-hidden="true">/</span>
+      <span>Product</span>
+    </nav>
+
+    <section class="status-messages" aria-live="polite" aria-atomic="true">
+      <p class="loading" hidden>Loading product...</p>
+      <p class="error" hidden></p>
+      <p class="success-message" hidden></p>
+    </section>
+
+    <section class="product-details" aria-labelledby="product-title">
+      <!-- Product content will be inserted here by product.js -->
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; 2026 Online Store</p>
+    </div>
+  </footer>
+</body>
+</html>
