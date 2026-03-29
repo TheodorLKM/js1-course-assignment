@@ -1,4 +1,4 @@
-const BASE_URL = "https://v2.api.noroff.dev";
+const BASE_URL = "https://v2.api.noroff.dev/rainy-days";
 const ENDPOINT = "rainy-days"; 
 const CART_KEY = "cart";
 
