@@ -199,13 +199,18 @@ function filterProducts(selectedValue) {
 
 async function fetchProducts() {
   const url = `${BASE_URL}/${ENDPOINT}`;
+  console.log("Fetching from:", url);
+
   const response = await fetch(url);
+  console.log("Response status:", response.status);
 
   if (!response.ok) {
     throw new Error(`HTTP error: ${response.status}`);
   }
 
   const json = await response.json();
+  console.log("API response:", json);
+
   return json.data;
 }
 
