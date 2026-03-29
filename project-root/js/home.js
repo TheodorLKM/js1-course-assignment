@@ -1,5 +1,5 @@
 const BASE_URL = "https://v2.api.noroff.dev";
-const ENDPOINT = "rainy-days";
+const ENDPOINT = "rainy-days"; 
 const CART_KEY = "cart";
 
 const productList = document.querySelector(".product-list");
@@ -11,15 +11,11 @@ const successMessage = document.querySelector(".success-message");
 let allProducts = [];
 
 function showLoading() {
-  if (loadingMessage) {
-    loadingMessage.hidden = false;
-  }
+  if (loadingMessage) loadingMessage.hidden = false;
 }
 
 function hideLoading() {
-  if (loadingMessage) {
-    loadingMessage.hidden = true;
-  }
+  if (loadingMessage) loadingMessage.hidden = true;
 }
 
 function showError(message) {
@@ -117,17 +113,9 @@ function getFilterValues(products) {
   const values = new Set();
 
   products.forEach((product) => {
-    if (product.gender) {
-      values.add(product.gender);
-    }
-
-    if (product.genre) {
-      values.add(product.genre);
-    }
-
-    if (product.category) {
-      values.add(product.category);
-    }
+    if (product.gender) values.add(product.gender);
+    if (product.genre) values.add(product.genre);
+    if (product.category) values.add(product.category);
   });
 
   return [...values].sort((a, b) => a.localeCompare(b));
@@ -137,7 +125,6 @@ function populateFilterOptions(products) {
   if (!filterSelect) return;
 
   const values = getFilterValues(products);
-
   filterSelect.innerHTML = `<option value="all">All</option>`;
 
   values.forEach((value) => {
@@ -151,7 +138,7 @@ function renderProducts(products) {
   productList.innerHTML = "";
 
   if (!products.length) {
-    productList.innerHTML = `<p>No products found.</p>`;
+    productList.innerHTML = "<p>No products found.</p>";
     return;
   }
 
@@ -167,7 +154,7 @@ function renderProducts(products) {
         <a href="product/index.html?id=${product.id}" class="product-card-link">
           ${
             imageUrl
-              ? `<img src="${imageUrl}" alt="${imageAlt}" class="product-image" />`
+              ? `<img src="${imageUrl}" alt="${imageAlt}" class="product-image">`
               : `<div class="product-image-placeholder">No image available</div>`
           }
           <h3>${product.title}</h3>
@@ -175,12 +162,7 @@ function renderProducts(products) {
 
         ${
           isOnSale
-            ? `
-              <p class="product-price">
-                <span class="old-price">${product.price} kr</span>
-                <span class="sale-price">${product.discountedPrice} kr</span>
-              </p>
-            `
+            ? `<p class="product-price"><span class="old-price">${product.price} kr</span> <span class="sale-price">${product.discountedPrice} kr</span></p>`
             : `<p class="product-price">${product.price} kr</p>`
         }
 
@@ -191,9 +173,7 @@ function renderProducts(products) {
     `;
   });
 
-  const buttons = document.querySelectorAll(".add-to-cart-button");
-
-  buttons.forEach((button) => {
+  document.querySelectorAll(".add-to-cart-button").forEach((button) => {
     button.addEventListener("click", () => {
       addToCart(button.dataset.id);
     });
@@ -218,10 +198,11 @@ function filterProducts(selectedValue) {
 }
 
 async function fetchProducts() {
-  const response = await fetch(`${BASE_URL}/${ENDPOINT}`);
+  const url = `${BASE_URL}/${ENDPOINT}`;
+  const response = await fetch(url);
 
   if (!response.ok) {
-    throw new Error("Could not fetch products.");
+    throw new Error(`HTTP error: ${response.status}`);
   }
 
   const json = await response.json();
@@ -234,10 +215,12 @@ async function initHomePage() {
     hideError();
 
     allProducts = await fetchProducts();
+    console.log("Products loaded:", allProducts);
 
     populateFilterOptions(allProducts);
     renderProducts(allProducts);
   } catch (error) {
+    console.error("Home page error:", error);
     showError("Something went wrong while loading products.");
   } finally {
     hideLoading();
